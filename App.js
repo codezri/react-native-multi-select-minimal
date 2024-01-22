@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, Pressable,  } from 'react-native';
 import { MaterialIcons as Icon } from '@expo/vector-icons';
 
 function MultiSelect({ items, onSelectedItemsChange }) {
-
   const [showItems, setShowItems] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
 
   function handleItemPress(pressedItemId) {
     let newSelectedItems = [...selectedItems];
     let i = newSelectedItems.indexOf(pressedItemId);
+
     if(i >= 0) {
       newSelectedItems.splice(i, 1);
     }
@@ -37,7 +37,9 @@ function MultiSelect({ items, onSelectedItemsChange }) {
           <Pressable
             key={item.id}
             onPress={() => handleItemPress(item.id)}
-            style={[styles.multiSelectItem, selectedItems.includes(item.id) && styles.multiSelectItemChecked]}><Text>{item.name}</Text>
+            style={[styles.multiSelectItem, selectedItems.includes(item.id)
+              && styles.multiSelectItemChecked]}>
+              <Text>{item.name}</Text>
           </Pressable> )
         }
       </View>
