@@ -16,7 +16,7 @@ function MultiSelect({ items, onSelectedItemsChange }) {
     else {
       newSelectedItems.push(pressedItemId);
     }
-    console.log(pressedItemId);
+
     setSelectedItems(newSelectedItems);
     onSelectedItemsChange && onSelectedItemsChange(newSelectedItems);
   }
